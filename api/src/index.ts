@@ -8,7 +8,9 @@ import { EVENTS } from "./constants/events";
 const PORT = process.env.PORT || 4003;
 
 io.on(EVENTS.CONNECTION, (socket) => {
-	socket.emit("me", socket.id);
+	console.log({ connected: socket.id });
+
+	socket.emit(EVENTS.ME, socket.id);
 
 	socket.on(EVENTS.NEW_CALL, (data) => {
 		io.to(data.userToCall).emit(EVENTS.NEW_CALL, { signal: data.signalData, from: data.from, name: data.name });
