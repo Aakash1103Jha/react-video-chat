@@ -1,0 +1,10 @@
+**/node_modules
+build
+client/build
+dist
+**/*/lib
+**/*/*.log*
+**/*/*.cache*
+.DS_Store
+.env
+server/API.rest
